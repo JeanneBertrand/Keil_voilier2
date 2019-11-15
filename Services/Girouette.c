@@ -9,21 +9,24 @@ void initGirouette(void)
 {
 	
 	//Activation du TIM3
-	LL_APB2_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
+	LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
 	
 	//Initialisation de la structure de l'encodeur pour la girouette
-	LL_TIM_ENCODER_InitTypeDef *structEncoder;
+	LL_TIM_ENCODER_InitTypeDef structEncoder;
 	
 	//Définition des valeurs de base pour la structure
-	structEncoder->EncoderMode = LL_TIM_ENCODERMODE_X4_TI12 ;
-	structEncoder->IC1Polarity = LL_TIM_IC_POLARITY_RISING;
-	structEncoder->IC2Polarity = LL_TIM_IC_POLARITY_RISING;
-	structEncoder->IC1Prescaler = LL_TIM_ICPSC_DIV1;
-	structEncoder->IC2Prescaler = LL_TIM_ICPSC_DIV1;
-	structEncoder->IC1ActiveInput = LL_TIM_ACTIVEINPUT_DIRECTTI;
-	structEncoder->IC2ActiveInput = LL_TIM_ACTIVEINPUT_DIRECTTI;
-	structEncoder->IC1Filter = 0;
-	structEncoder->IC2Filter = 0;
+	structEncoder.EncoderMode = LL_TIM_ENCODERMODE_X4_TI12 ;
+	structEncoder.IC1Polarity = LL_TIM_IC_POLARITY_RISING;
+	structEncoder.IC1ActiveInput = LL_TIM_ACTIVEINPUT_DIRECTTI;
+	structEncoder.IC1Prescaler = LL_TIM_ICPSC_DIV1;
+	structEncoder.IC1Filter = 0;
+	structEncoder.IC2Polarity = LL_TIM_IC_POLARITY_RISING;
+	structEncoder.IC2ActiveInput = LL_TIM_ACTIVEINPUT_DIRECTTI;
+	structEncoder.IC2Prescaler = LL_TIM_ICPSC_DIV1;
+	structEncoder.IC2Filter = 0;
+	
+	LL_TIM_ENCODER_Init(TIM3,&structEncoder);
+	
 	
 	//Simulation
 	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
