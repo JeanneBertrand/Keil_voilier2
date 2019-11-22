@@ -22,12 +22,11 @@
 
 #include "Chrono.h"
 #include "MyADC.h"
-<<<<<<< HEAD
+
 #include "MyTimer.h"
-=======
+#include "RxFM.h"
 #include "Girouette.h"
-#include "Servo.h"
->>>>>>> refs/remotes/origin/master
+//#include "Servo.h"
 
 void  SystemClock_Config(void);
 
@@ -45,16 +44,18 @@ int main(void)
   SystemClock_Config();
 	
 	//Initialisation et activation du servomoteur
-	initServo();
-	enableServo();
+	//initServo();
+	//enableServo();
 	
 	//Initialisation et activation de la girouette
-	initGirouette();
-	enableGirouette();
-	
+//	initGirouette();
+	//enableGirouette();
+	Teleco_init(); 
+	int val1 ;
 	
   while (1)
   {
+		val1 = getLength();
   }
 }
 

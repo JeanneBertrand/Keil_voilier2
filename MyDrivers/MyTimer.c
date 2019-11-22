@@ -68,35 +68,39 @@ void MyTimer_Conf(TIM_TypeDef * Timer,int Arr, int Psc)
 
 void MyPWM_input_Conf (int Arr, int Psc) {
 	
-	TIM3 -> CCMR1 &=~ TIM_CCMR1_CC1S ;
-	TIM3 -> CCMR1 |= 1<< TIM_CCMR1_CC1S_Pos ; 
+	MyTimer_Conf (TIM4, Arr, Psc) ; 
 	
-	TIM3 -> CCER &=~ TIM_CCER_CC1P ; 
+	TIM4 -> CR1 |= TIM_CR1_CEN;
+	
+	TIM4 -> CCMR1 &=~ TIM_CCMR1_CC1S ;
+	TIM4 -> CCMR1 |= 1<< TIM_CCMR1_CC1S_Pos ; 
+	
+	TIM4 -> CCER &=~ TIM_CCER_CC1P ; 
 
-	TIM3 -> CCMR1 &=~ TIM_CCMR1_CC2S ; 
-	TIM3 -> CCMR1 |= 2<< TIM_CCMR1_CC2S_Pos ; 
+	TIM4 -> CCMR1 &=~ TIM_CCMR1_CC2S ; 
+	TIM4 -> CCMR1 |= 2<< TIM_CCMR1_CC2S_Pos ; 
 	
-	TIM3 -> CCER |= TIM_CCER_CC2P ; 
+	TIM4 -> CCER |= TIM_CCER_CC2P ; 
 	
-	TIM3 -> SMCR &=~ TIM_SMCR_TS ; 
-	TIM3 -> SMCR |= 5<<TIM_SMCR_TS_Pos ; 
+	TIM4 -> SMCR &=~ TIM_SMCR_TS ; 
+	TIM4 -> SMCR |= 5<<TIM_SMCR_TS_Pos ; 
 	
-	TIM3 -> SMCR &=~ TIM_SMCR_SMS ; 
-	TIM3 -> SMCR |= 4<<TIM_SMCR_SMS_Pos ; 
+	TIM4 -> SMCR &=~ TIM_SMCR_SMS ; 
+	TIM4 -> SMCR |= 4<<TIM_SMCR_SMS_Pos ; 
 
-	TIM3 -> CCER |= TIM_CCER_CC1E ;
-	TIM3 -> CCER |= TIM_CCER_CC2E ; 	
+	TIM4 -> CCER |= TIM_CCER_CC1E ;
+	TIM4 -> CCER |= TIM_CCER_CC2E ; 	
 	
-	MyTimer_Conf (TIM3, Arr, Psc) ; 
+
 
 
 }
 void MyPWM_output_Conf (int Arr, int Psc)
 {
-	TIM3 -> CCMR1 &=~ TIM_CCMR1_OC1M;
-  TIM3 -> CCMR1 |= 6 << TIM_CCMR1_OC1M_Pos;
+	TIM4 -> CCMR1 &=~ TIM_CCMR1_OC1M;
+  TIM4 -> CCMR1 |= 6 << TIM_CCMR1_OC1M_Pos;
 
-	MyTimer_Conf(TIM3, Arr, Psc) ; 
+	MyTimer_Conf(TIM4, Arr, Psc) ; 
 
 }
 /**
