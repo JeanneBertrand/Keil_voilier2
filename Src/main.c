@@ -22,7 +22,12 @@
 
 #include "Chrono.h"
 #include "MyADC.h"
+<<<<<<< HEAD
 #include "MyTimer.h"
+=======
+#include "Girouette.h"
+#include "Servo.h"
+>>>>>>> refs/remotes/origin/master
 
 void  SystemClock_Config(void);
 
@@ -38,7 +43,14 @@ int main(void)
 	//quand on passera sur du reel ne pas oublier de commenter la ligne plus bas
   /* Configure the system clock to 72 MHz */
   SystemClock_Config();
-
+	
+	//Initialisation et activation du servomoteur
+	initServo();
+	enableServo();
+	
+	//Initialisation et activation de la girouette
+	initGirouette();
+	enableGirouette();
 	
 	
   while (1)

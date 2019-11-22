@@ -8,4 +8,6 @@ nucleo-f103rb\girouette.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cms
 nucleo-f103rb\girouette.o: ..\Inc\system_stm32f1xx.h
 nucleo-f103rb\girouette.o: ..\LLDrivers\inc\stm32f1xx_ll_gpio.h
 nucleo-f103rb\girouette.o: ..\Inc\stm32f1xx.h
+nucleo-f103rb\girouette.o: ..\Services\..\LLDrivers\inc\stm32f1xx_ll_tim.h
+nucleo-f103rb\girouette.o: ..\LLDrivers\inc\stm32f1xx_ll_bus.h
 nucleo-f103rb\girouette.o: ..\Services\Girouette.h
