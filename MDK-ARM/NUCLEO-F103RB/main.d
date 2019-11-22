@@ -12,9 +12,6 @@ nucleo-f103rb\main.o: ..\LLDrivers\inc\stm32f1xx_ll_utils.h
 nucleo-f103rb\main.o: ..\LLDrivers\inc\stm32f1xx_ll_system.h
 nucleo-f103rb\main.o: ..\Services\Chrono.h
 nucleo-f103rb\main.o: ..\MyDrivers\MyADC.h
-<<<<<<< HEAD
 nucleo-f103rb\main.o: ..\MyDrivers\MyTimer.h
-=======
 nucleo-f103rb\main.o: ..\Services\Girouette.h
 nucleo-f103rb\main.o: ..\Services\Servo.h
->>>>>>> refs/remotes/origin/master

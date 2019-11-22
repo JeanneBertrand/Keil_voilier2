@@ -22,12 +22,11 @@
 
 #include "Chrono.h"
 #include "MyADC.h"
-<<<<<<< HEAD
+
 #include "MyTimer.h"
-=======
 #include "Girouette.h"
 #include "Servo.h"
->>>>>>> refs/remotes/origin/master
+
 
 void  SystemClock_Config(void);
 
@@ -40,6 +39,8 @@ void  SystemClock_Config(void);
   */
 int main(void)
 {
+	
+	int angle;
 	//quand on passera sur du reel ne pas oublier de commenter la ligne plus bas
   /* Configure the system clock to 72 MHz */
   SystemClock_Config();
@@ -55,6 +56,8 @@ int main(void)
 	
   while (1)
   {
+		angle = GetAngle();
+		setSailAngle(angle);
   }
 }
 
@@ -87,7 +90,7 @@ void SystemClock_Config(void)
   /* Enable HSE oscillator */
 	// ********* Commenter la ligne ci-dessous pour MCBSTM32 *****************
 	// ********* Conserver la ligne si Nucléo*********************************
-  LL_RCC_HSE_EnableBypass();
+  //LL_RCC_HSE_EnableBypass();
   LL_RCC_HSE_Enable();
   while(LL_RCC_HSE_IsReady() != 1)
   {

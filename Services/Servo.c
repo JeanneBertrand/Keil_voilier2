@@ -48,11 +48,11 @@ void initServo (void) {
 }
 
 void enableServo(void){
-		LL_TIM_EnableCounter(TIM3);
+		LL_TIM_EnableCounter(TIM1);
 }
 
 void disableServo(void){
-		LL_TIM_DisableCounter(TIM3);
+		LL_TIM_DisableCounter(TIM1);
 }
 
 void setSailAngle (int angle) { 

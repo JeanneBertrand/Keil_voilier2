@@ -5,9 +5,11 @@
 
 #include "Girouette.h"
 
+int flag = 1; //1: l'interruption de l'index
+
 void initGirouette(void)
 {
-	
+
 	//Activation du TIM3
 	LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
 	
@@ -24,9 +26,10 @@ void initGirouette(void)
 	structEncoder.IC2ActiveInput = LL_TIM_ACTIVEINPUT_DIRECTTI;
 	structEncoder.IC2Prescaler = LL_TIM_ICPSC_DIV1;
 	structEncoder.IC2Filter = 0;
-	
+
 	LL_TIM_ENCODER_Init(TIM3,&structEncoder);
-	
+	LL_TIM_SetPrescaler(TIM3,3);
+	LL_TIM_SetAutoReload(TIM3, 360);	
 	
 	//Simulation
 	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
@@ -35,10 +38,18 @@ void initGirouette(void)
 	LL_GPIO_SetPinMode(GPIOA, LL_GPIO_PIN_6, LL_GPIO_MODE_FLOATING);
 	LL_GPIO_SetPinMode(GPIOA, LL_GPIO_PIN_7, LL_GPIO_MODE_FLOATING);
 	
+	//index
+	LL_GPIO_SetPinMode(GPIOA, LL_GPIO_PIN_5, LL_GPIO_MODE_FLOATING);
 	
+	//LL_GPIO_GetPinPull
 }
 
+/*void IT_girouette(void){
+	
+}*/
+
 void enableGirouette(void){
+	
 	LL_TIM_EnableCounter(TIM3);
 }
 
