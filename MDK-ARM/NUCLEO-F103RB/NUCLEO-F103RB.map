@@ -11,7 +11,8 @@ Section Cross References
     chrono.o(i.Chrono_Reset) refers to chrono.o(.data) for .data
     chrono.o(i.Chrono_Task_10ms) refers to chrono.o(.data) for .data
     girouette.o(i.init_girouette) refers to girouette.o(i.LL_GPIO_SetPinMode) for LL_GPIO_SetPinMode
-    mytimer.o(i.MyPWM_Conf) refers to mytimer.o(i.MyTimer_Conf) for MyTimer_Conf
+    mytimer.o(i.MyPWM_input_Conf) refers to mytimer.o(i.MyTimer_Conf) for MyTimer_Conf
+    mytimer.o(i.MyPWM_output_Conf) refers to mytimer.o(i.MyTimer_Conf) for MyTimer_Conf
     mytimer.o(i.MyTimer_Conf) refers to mytimer.o(i.LL_APB1_GRP1_EnableClock) for LL_APB1_GRP1_EnableClock
     mytimer.o(i.MyTimer_Conf) refers to stm32f1xx_ll_tim.o(i.LL_TIM_Init) for LL_TIM_Init
     mytimer.o(i.MyTimer_IT_Conf) refers to mytimer.o(.data) for .data
@@ -118,8 +119,8 @@ Removing Unused input sections from the image.
     Removing mytimer.o(.revsh_text), (4 bytes).
     Removing mytimer.o(.rrx_text), (6 bytes).
     Removing mytimer.o(i.LL_APB1_GRP1_EnableClock), (24 bytes).
-    Removing mytimer.o(i.MyPWM_Conf), (40 bytes).
-    Removing mytimer.o(i.MyPWM_input_Conf), (98 bytes).
+    Removing mytimer.o(i.MyPWM_input_Conf), (110 bytes).
+    Removing mytimer.o(i.MyPWM_output_Conf), (30 bytes).
     Removing mytimer.o(i.MyTimer_Conf), (120 bytes).
     Removing mytimer.o(i.MyTimer_IT_Conf), (116 bytes).
     Removing mytimer.o(i.MyTimer_IT_Disable), (10 bytes).
@@ -258,7 +259,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f1xx.o(.constdata), (8 bytes).
     Removing startup_stm32f103xb.o(HEAP), (512 bytes).
 
-162 unused section(s) (total 6975 bytes) removed from the image.
+162 unused section(s) (total 6977 bytes) removed from the image.
 
 ==============================================================================
 

@@ -67,7 +67,7 @@ void MyTimer_IT_Enable(TIM_TypeDef * Timer);
   */
 void MyTimer_IT_Disable(TIM_TypeDef * Timer);
 
-void MyPWM_input_Conf(TIM_TypeDef * Timer,int Arr, int Psc);
-void MyPWM_output_Conf (TIM_TypeDef * Timer,int Arr, int Psc);
+void MyPWM_input_Conf(int Arr, int Psc);
+void MyPWM_output_Conf (int Arr, int Psc);
 
 #endif

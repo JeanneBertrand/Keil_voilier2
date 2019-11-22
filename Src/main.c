@@ -22,6 +22,7 @@
 
 #include "Chrono.h"
 #include "MyADC.h"
+#include "MyTimer.h"
 
 void  SystemClock_Config(void);
 
