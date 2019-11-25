@@ -13,10 +13,7 @@ nucleo-f103rb\main.o: ..\LLDrivers\inc\stm32f1xx_ll_system.h
 nucleo-f103rb\main.o: ..\Services\Chrono.h
 nucleo-f103rb\main.o: ..\MyDrivers\MyADC.h
 nucleo-f103rb\main.o: ..\MyDrivers\MyTimer.h
-<<<<<<< HEAD
 nucleo-f103rb\main.o: ..\Services\RxFM.h
 nucleo-f103rb\main.o: ..\Services\Girouette.h
-=======
-nucleo-f103rb\main.o: ..\Services\Girouette.h
 nucleo-f103rb\main.o: ..\Services\Servo.h
->>>>>>> 2e2c15c7327e71dd51adc86558c9c9c63253ce6a
+nucleo-f103rb\main.o: ..\Services\MoteurPlateau.h

@@ -66,6 +66,12 @@ void MyTimer_Conf(TIM_TypeDef * Timer,int Arr, int Psc)
 }
 
 
+/**
+	* @brief  Configure le Timer4 en PWM INPUT.
+  * @note   
+	* @param  valeurs de ARR et PSC données par un DEFINE 
+  * @retval None
+  */
 void MyPWM_input_Conf (int Arr, int Psc) {
 	
 	MyTimer_Conf (TIM4, Arr, Psc) ; 
@@ -91,16 +97,20 @@ void MyPWM_input_Conf (int Arr, int Psc) {
 	TIM4 -> CCER |= TIM_CCER_CC1E ;
 	TIM4 -> CCER |= TIM_CCER_CC2E ; 	
 	
-
-
-
 }
+
+
+/**
+	* @brief  Configure le Timer2 en PWM OUTPUT.
+  * @note   
+	* @param  valeurs de ARR et PSC données par un DEFINE 
+  * @retval None
+  */
 void MyPWM_output_Conf (int Arr, int Psc)
 {
-	TIM4 -> CCMR1 &=~ TIM_CCMR1_OC1M;
-  TIM4 -> CCMR1 |= 6 << TIM_CCMR1_OC1M_Pos;
-
-	MyTimer_Conf(TIM4, Arr, Psc) ; 
+	MyTimer_Conf(TIM2, Arr, Psc) ; 
+	LL_TIM_OC_SetMode(TIM2,LL_TIM_CHANNEL_CH2,LL_TIM_OCMODE_PWM1);
+	LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH2);
 
 }
 /**

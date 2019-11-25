@@ -24,15 +24,12 @@
 #include "MyADC.h"
 
 #include "MyTimer.h"
-<<<<<<< HEAD
 #include "RxFM.h"
 #include "Girouette.h"
-//#include "Servo.h"
-=======
-#include "Girouette.h"
-#include "Servo.h"
 
->>>>>>> 2e2c15c7327e71dd51adc86558c9c9c63253ce6a
+#include "Servo.h"
+#include "MoteurPlateau.h"
+
 
 void  SystemClock_Config(void);
 
@@ -59,16 +56,14 @@ int main(void)
 //	initGirouette();
 	//enableGirouette();
 	Teleco_init(); 
+	Init_Moteur();
 	int val1 ;
 	
   while (1)
   {
-<<<<<<< HEAD
 		val1 = getLength();
-=======
 		angle = GetAngle();
 		setSailAngle(angle);
->>>>>>> 2e2c15c7327e71dd51adc86558c9c9c63253ce6a
   }
 }
 

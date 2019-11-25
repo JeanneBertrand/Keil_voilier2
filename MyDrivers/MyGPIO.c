@@ -1,7 +1,15 @@
 #include "MyGPIO.h"
 #include "stm32f1xx_ll_gpio.h"
+#include "stm32f1xx_ll_tim.h"
 
-void MyGPIO_PWMConf(void){
+
+/**
+	* @brief  Configure le GPIO B en floating input sur les pin 6 et 7
+  * @note   
+	* @param  None
+  * @retval None
+  */
+void MyGPIO_PWMInputConf(void){
 
 	RCC -> APB2ENR |= RCC_APB2ENR_IOPBEN ; 
 
@@ -25,3 +33,43 @@ void MyGPIO_PWMConf(void){
  
  LL_GPIO_Init(GPIOB, &GPIO_InitStruct7);
 }
+
+
+
+/**
+	* @brief  Configure le GPIO A en push-pull sur la pin 1
+  * @note   
+	* @param  None
+  * @retval None
+  */
+void MyGPIO_PWMOutputConf(void){
+	
+	
+	RCC -> APB2ENR |= RCC_APB2ENR_IOPAEN ; 
+	
+	LL_GPIO_InitTypeDef GPIOIn;
+	GPIOIn.Pin=LL_GPIO_PIN_1;
+	GPIOIn.Mode=LL_GPIO_MODE_ALTERNATE;
+	GPIOIn.OutputType=LL_GPIO_OUTPUT_PUSHPULL;
+	GPIOIn.Speed=LL_GPIO_SPEED_FREQ_MEDIUM;
+	LL_GPIO_Init(GPIOA, &GPIOIn);
+	
+}
+
+
+/**
+	* @brief  Configure le GPIO A en general purpose output sur les pin 2
+  * @note   
+	* @param  None
+  * @retval None
+  */
+void MyGPIO_SensConf(void){
+		LL_GPIO_InitTypeDef GPIOIn;
+	//Initialisation GPIO (Sens)
+	GPIOIn.Pin=LL_GPIO_PIN_2;
+	GPIOIn.Mode=LL_GPIO_MODE_OUTPUT;
+	LL_GPIO_Init(GPIOA,&GPIOIn);
+
+
+}
+

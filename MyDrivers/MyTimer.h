@@ -77,7 +77,12 @@ void MyTimer_IT_Disable(TIM_TypeDef * Timer);
 void MyPWM_input_Conf(int Arr, int Psc);
 
 
-
+/**
+	* @brief  Configure le Timer2 en PWM OUTPUT.
+  * @note   
+	* @param  valeurs de ARR et PSC données par un DEFINE 
+  * @retval None
+  */
 void MyPWM_output_Conf (int Arr, int Psc);
 
 #endif
