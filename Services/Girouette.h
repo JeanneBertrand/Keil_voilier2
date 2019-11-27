@@ -6,10 +6,11 @@
 
 #include "stm32f103xb.h"
 
+static int INITIALANGLE = 0x011B;
 void initGirouette(void);
-void IT_girouette(void);
 void enableGirouette(void);
 void diableGirouette(void);
 int GetAngle(void);
+void setIndex(void);
 
 #endif
