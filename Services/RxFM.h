@@ -6,7 +6,7 @@
 	* @param  None
   * @retval None
   */
-void Teleco_init(void) ; 
+void Init_Teleco(void) ; 
 
 /**
 	* @brief  Récupère la durée de l'impulsion envoyée par la télécommande.

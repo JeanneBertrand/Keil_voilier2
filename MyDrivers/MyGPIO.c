@@ -1,7 +1,7 @@
 #include "MyGPIO.h"
 #include "stm32f1xx_ll_gpio.h"
 #include "stm32f1xx_ll_tim.h"
-
+#include "stm32f1xx_ll_bus.h"
 
 /**
 	* @brief  Configure le GPIO B en floating input sur les pin 6 et 7
@@ -11,7 +11,8 @@
   */
 void MyGPIO_PWMInputConf(void){
 
-	RCC -> APB2ENR |= RCC_APB2ENR_IOPBEN ; 
+	RCC -> APB2ENR |= RCC_APB2ENR_IOPBEN;
+	//LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOB);
 
  LL_GPIO_InitTypeDef GPIO_InitStruct6;
 	

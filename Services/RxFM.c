@@ -10,7 +10,7 @@
 	* @param  None
   * @retval None
   */
-void Teleco_init(void){
+void Init_Teleco(void){
 	MyPWM_input_Conf(ARR,PSC) ; 
 	MyGPIO_PWMInputConf();
 }

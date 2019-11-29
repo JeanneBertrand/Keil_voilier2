@@ -47,7 +47,7 @@ int main(void)
 	//quand on passera sur du reel ne pas oublier de commenter la ligne plus bas
   /* Configure the system clock to 72 MHz */
   SystemClock_Config();
-	
+	//RCC -> APB2ENR |= RCC_APB2ENR_IOPBEN;
 	//Initialisation et activation du servomoteur
 	//initServo();
 	//enableServo();
@@ -55,15 +55,16 @@ int main(void)
 	//Initialisation et activation de la girouette
 //	initGirouette();
 	//enableGirouette();
-	Teleco_init(); 
+	Init_Teleco(); 
 	Init_Moteur();
 	int val1 ;
 	
   while (1)
   {
 		val1 = getLength();
-		angle = GetAngle();
-		setSailAngle(angle);
+		SetParam(val1); 
+		//angle = GetAngle();
+		//setSailAngle(angle);
   }
 }
 
