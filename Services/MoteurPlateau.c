@@ -4,9 +4,9 @@
 #include "stm32f1xx_ll_gpio.h"
 #include "stm32f1xx_ll_tim.h"
 
-#define PSC 3599 // (1/20kHz) = (1/72MHz) * (PSC+1)
-#define ARR 0
-
+#define PSC 3 // (1/20kHz) = (1/72MHz) * (PSC+1) * (ARR+1) --> en vrai notre fréquence est à 18kHz
+#define ARR 999
+ int power ; 
 /**
 	* @brief  Configure le Moteur.
   * @note   
@@ -25,16 +25,18 @@ void Init_Moteur(void){
 /**
 	* @brief  Set les paramètres de sens (droite ou gauche) et de puissance du moteur .
   * @note   
-	* @param  int angle compris entre -20 et 20
+	* @param  int valeur_teleco compris entre -20 et 20
   * @retval None
   */
-void SetParam(int angle){
-	if (angle>0) {
-		LL_GPIO_SetOutputPin(GPIOA,LL_GPIO_PIN_2);
+void SetParam(int valeur_teleco){
+	
+	if (valeur_teleco>0) {
+		LL_GPIO_ResetOutputPin(GPIOA,LL_GPIO_PIN_2); //droite
 	} else {
-		LL_GPIO_ResetOutputPin(GPIOA,LL_GPIO_PIN_2);
-		angle= - angle; 
+		LL_GPIO_SetOutputPin(GPIOA,LL_GPIO_PIN_2); //gauche
+		valeur_teleco= - valeur_teleco; 
 	}
-	int power = angle*4;
-	//LL_TIM_OC_SetCompareCH2(TIM2,power); 
+	power = valeur_teleco*60;
+	if (power>1000) {power=1000;} 
+	LL_TIM_OC_SetCompareCH2(TIM2,power); 
 }

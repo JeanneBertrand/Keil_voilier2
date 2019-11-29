@@ -55,11 +55,11 @@ void MyTimer_Conf(TIM_TypeDef * Timer,int Arr, int Psc)
 	
 
 	// Blocage IT
-	//LL_TIM_DisableIT_UPDATE(Timer);
+	LL_TIM_DisableIT_UPDATE(Timer);
 	
 	
 	// Blocage Timer
-	//LL_TIM_DisableCounter(Timer);
+	LL_TIM_DisableCounter(Timer);
 	
 
 		
@@ -76,7 +76,6 @@ void MyPWM_input_Conf (int Arr, int Psc) {
 	
 	MyTimer_Conf (TIM4, Arr, Psc) ; 
 	
-	TIM4 -> CR1 |= TIM_CR1_CEN;
 	
 	TIM4 -> CCMR1 &=~ TIM_CCMR1_CC1S ;
 	TIM4 -> CCMR1 |= 1<< TIM_CCMR1_CC1S_Pos ; 
@@ -97,9 +96,7 @@ void MyPWM_input_Conf (int Arr, int Psc) {
 	TIM4 -> CCER |= TIM_CCER_CC1E ;
 	TIM4 -> CCER |= TIM_CCER_CC2E ;
 
-	TIM4-> DIER |= TIM_DIER_CC1IE;
-	TIM4-> DIER |= TIM_DIER_CC2IE;
-	LL_TIM_EnableIT_UPDATE(TIM4);
+	TIM4 -> CR1 |= TIM_CR1_CEN;
 	
 }
 
@@ -115,6 +112,7 @@ void MyPWM_output_Conf (int Arr, int Psc)
 	MyTimer_Conf(TIM2, Arr, Psc) ; 
 	LL_TIM_OC_SetMode(TIM2,LL_TIM_CHANNEL_CH2,LL_TIM_OCMODE_PWM1);
 	LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH2);
+	TIM2 -> CR1 |= TIM_CR1_CEN;
 
 }
 /**

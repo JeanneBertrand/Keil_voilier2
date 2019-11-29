@@ -44,8 +44,14 @@ int angle;
   * @param  None
   * @retval None
   */
+	
+		int val1 ;
 int main(void)
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> a939bb09053949dc66f0c6c1e2a63c90aef0878f
 	//quand on passera sur du reel ne pas oublier de commenter la ligne plus bas
   /* Configure the system clock to 72 MHz */
   SystemClock_Config();
@@ -61,6 +67,7 @@ int main(void)
 	
 	Init_Teleco(); 
 	Init_Moteur();
+<<<<<<< HEAD
 	int val1 ;
 	val= 75;
   while (1)	
@@ -68,6 +75,14 @@ int main(void)
   {
 		
 		val1 = getLength();
+=======
+
+	//	val1=15;	
+  while (1)
+  {
+		val1 = getTelecoCount();
+
+>>>>>>> a939bb09053949dc66f0c6c1e2a63c90aef0878f
 		SetParam(val1); 
 		
 		angle = GetAngle();
