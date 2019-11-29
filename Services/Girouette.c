@@ -61,3 +61,9 @@ int GetAngle(void)
 {
 	return LL_TIM_GetCounter(TIM3);
 }
+
+void setIndex(void){
+	while (!LL_GPIO_IsInputPinSet (GPIOA, LL_GPIO_PIN_5)){
+		LL_TIM_SetCounter(TIM3,INITIALANGLE);
+	}
+}
