@@ -30,9 +30,13 @@
 #include "Servo.h"
 #include "MoteurPlateau.h"
 
+#include "stm32f1xx_ll_tim.h"
 
+// bateau teleco 4
+
+int val;
 void  SystemClock_Config(void);
-
+int angle;
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -42,29 +46,32 @@ void  SystemClock_Config(void);
   */
 int main(void)
 {
-	
-	int angle;
 	//quand on passera sur du reel ne pas oublier de commenter la ligne plus bas
   /* Configure the system clock to 72 MHz */
   SystemClock_Config();
 	//RCC -> APB2ENR |= RCC_APB2ENR_IOPBEN;
 	//Initialisation et activation du servomoteur
-	//initServo();
-	//enableServo();
+	initServo();
+	enableServo();
 	
 	//Initialisation et activation de la girouette
-//	initGirouette();
-	//enableGirouette();
+	initGirouette();
+	enableGirouette();
+	
+	
 	Init_Teleco(); 
 	Init_Moteur();
 	int val1 ;
+	val= 75;
+  while (1)	
 	
-  while (1)
   {
+		
 		val1 = getLength();
 		SetParam(val1); 
-		//angle = GetAngle();
-		//setSailAngle(angle);
+		
+		angle = GetAngle();
+		setSailAngle(angle);
   }
 }
 

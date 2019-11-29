@@ -8,3 +8,7 @@ nucleo-f103rb\moteurplateau.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include
 nucleo-f103rb\moteurplateau.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
 nucleo-f103rb\moteurplateau.o: ..\Inc\system_stm32f1xx.h
 nucleo-f103rb\moteurplateau.o: ..\MyDrivers\MyGPIO.h
+nucleo-f103rb\moteurplateau.o: ..\Services\MoteurPlateau.h
+nucleo-f103rb\moteurplateau.o: ..\LLDrivers\inc\stm32f1xx_ll_gpio.h
+nucleo-f103rb\moteurplateau.o: ..\Inc\stm32f1xx.h
+nucleo-f103rb\moteurplateau.o: ..\LLDrivers\inc\stm32f1xx_ll_tim.h

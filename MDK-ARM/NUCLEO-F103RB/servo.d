@@ -1,4 +1,5 @@
 nucleo-f103rb\servo.o: ..\Services\Servo.c
+nucleo-f103rb\servo.o: ..\Services\Servo.h
 nucleo-f103rb\servo.o: ..\LLDrivers\inc\stm32f1xx_ll_bus.h
 nucleo-f103rb\servo.o: ..\Inc\stm32f1xx.h
 nucleo-f103rb\servo.o: ..\Inc\stm32f103xb.h
@@ -9,3 +10,4 @@ nucleo-f103rb\servo.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_c
 nucleo-f103rb\servo.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
 nucleo-f103rb\servo.o: ..\Inc\system_stm32f1xx.h
 nucleo-f103rb\servo.o: ..\LLDrivers\inc\stm32f1xx_ll_tim.h
+nucleo-f103rb\servo.o: ..\LLDrivers\inc\stm32f1xx_ll_gpio.h

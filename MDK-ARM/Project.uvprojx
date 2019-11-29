@@ -427,6 +427,11 @@
               <FilePath>..\Services\Servo.c</FilePath>
             </File>
             <File>
+              <FileName>Servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Services\Servo.h</FilePath>
+            </File>
+            <File>
               <FileName>TxFM.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Services\TxFM.c</FilePath>
@@ -455,6 +460,11 @@
               <FileName>MyGPIO.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MyDrivers\MyGPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>MyGPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyDrivers\MyGPIO.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -989,6 +999,11 @@
               <FilePath>..\Services\Servo.c</FilePath>
             </File>
             <File>
+              <FileName>Servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Services\Servo.h</FilePath>
+            </File>
+            <File>
               <FileName>TxFM.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Services\TxFM.c</FilePath>
@@ -1017,6 +1032,11 @@
               <FileName>MyGPIO.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MyDrivers\MyGPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>MyGPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyDrivers\MyGPIO.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1549,6 +1569,11 @@
               <FileName>Servo.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Services\Servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>Servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Services\Servo.h</FilePath>
             </File>
             <File>
               <FileName>TxFM.c</FileName>

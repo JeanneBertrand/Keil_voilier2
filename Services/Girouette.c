@@ -40,7 +40,7 @@ void initGirouette(void)
 	
 	//index
 	LL_GPIO_SetPinMode(GPIOA, LL_GPIO_PIN_5, LL_GPIO_MODE_FLOATING);
-
+	setIndex();
 }
 
 /*void IT_girouette(void){
@@ -58,12 +58,16 @@ void diableGirouette(void){
 
 int GetAngle(void)
 {
-	return LL_TIM_GetCounter(TIM3);
+	if (LL_TIM_GetCounter(TIM3) > 0x0030){
+		return (LL_TIM_GetCounter(TIM3)-0x0030);
+	}
+	else{
+		return (LL_TIM_GetCounter(TIM3) + 0x0168 -0x0030);
+	}
 }
 
 void setIndex(void){
 	while (!LL_GPIO_IsInputPinSet (GPIOA, LL_GPIO_PIN_5)){
-		
-	}
-	LL_TIM_SetCounter(TIM3,INITIALANGLE);
+		}
+	LL_TIM_SetCounter(TIM3,0x0168-0x0040);
 }

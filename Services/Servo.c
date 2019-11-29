@@ -1,50 +1,56 @@
-//#include "Servo.h"
+#include "Servo.h"
 #include "stm32f1xx_ll_bus.h"
 #include "stm32f1xx_ll_tim.h"
+#include "stm32f1xx_ll_gpio.h"
 
-
+float comparevalue;
 void initServo (void) {
-//start the clock of TIM1
+	// Conf PA8
+
+	LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOA);
+
+	// PIN D14
+	LL_GPIO_InitTypeDef GPIO_Init;
+	GPIO_Init.Mode = LL_GPIO_MODE_ALTERNATE;
+	GPIO_Init.Pin = LL_GPIO_PIN_8;
+	GPIO_Init.OutputType =  LL_GPIO_OUTPUT_PUSHPULL;
+	GPIO_Init.Pull = LL_GPIO_PULL_DOWN;
+	GPIO_Init.Speed = LL_GPIO_MODE_OUTPUT_10MHz;
+	LL_GPIO_Init(GPIOA,&GPIO_Init);
+
+	// Conf timer
 	LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1);
 
-//struct use to config TIM1
-	LL_TIM_InitTypeDef TIM1InitStruct;
+	LL_TIM_InitTypeDef Timer_Init;
+	Timer_Init.Autoreload = 999;
+	Timer_Init.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
+	Timer_Init.CounterMode = LL_TIM_COUNTERMODE_UP;
+	Timer_Init.Prescaler = 1439;
+	Timer_Init.RepetitionCounter = 0;
+	LL_TIM_Init(TIM1, &Timer_Init);
+	
+	LL_TIM_BDTR_InitTypeDef TIM_BDTRInitStruct;	
+	TIM_BDTRInitStruct.OSSRState = LL_TIM_OSSR_DISABLE;
+	TIM_BDTRInitStruct.OSSIState = LL_TIM_OSSI_DISABLE;
+	TIM_BDTRInitStruct.LockLevel = LL_TIM_LOCKLEVEL_OFF;
+	TIM_BDTRInitStruct.DeadTime = 0;
+	TIM_BDTRInitStruct.BreakState = LL_TIM_BREAK_DISABLE;
+	TIM_BDTRInitStruct.BreakPolarity = LL_TIM_BREAK_POLARITY_HIGH;
+	TIM_BDTRInitStruct.AutomaticOutput = LL_TIM_AUTOMATICOUTPUT_ENABLE;
+	LL_TIM_BDTR_Init(TIM1, &TIM_BDTRInitStruct);
+	
+	LL_TIM_OC_InitTypeDef Timer_OC_Init;
+	Timer_OC_Init.CompareValue = 100;
+	Timer_OC_Init.OCIdleState = LL_TIM_OCIDLESTATE_LOW;
+	Timer_OC_Init.OCMode = LL_TIM_OCMODE_PWM1 ;
+	Timer_OC_Init.OCState=LL_TIM_OCSTATE_ENABLE;
+	Timer_OC_Init.OCPolarity = LL_TIM_OCPOLARITY_HIGH;
 
-/*set at 20ms*/
-	TIM1InitStruct.Autoreload = 999; 
-	TIM1InitStruct.Prescaler= 1439;
-
-/*************/
-//init the other files
-	TIM1InitStruct.ClockDivision=LL_TIM_CLOCKDIVISION_DIV1;
-	TIM1InitStruct.CounterMode=LL_TIM_COUNTERMODE_UP;
-	TIM1InitStruct.RepetitionCounter=0;
-
-//Initialisation de la structure (remplissage automatique des valeurs pas importantes)
-	LL_TIM_Init(TIM1,&TIM1InitStruct);
-
-//Utilisation d'une structure pour configurer le TIM1 en PWM
-	LL_TIM_OC_InitTypeDef PWMInitStruct;
-
-//Initialisation de la structure du PWM
-	LL_TIM_OC_StructInit(&PWMInitStruct);
-
-//set the values of the fields of the PWM structure
-	PWMInitStruct.OCMode = LL_TIM_OCMODE_PWM1;
-
-//1ms (value : 50) for the minimum angle and 2ms (value : 100) for the max angle
-//set at 2 ms by default (sail in straight position)
-	PWMInitStruct.CompareValue = 100;
-
-//enable the compare mode
-	PWMInitStruct.OCState = LL_TIM_OCSTATE_ENABLE;
-	PWMInitStruct.OCNState = LL_TIM_OCSTATE_ENABLE;
-
-//start TIM1 output mode
-	TIM1 -> BDTR |= 0x1 << 15;
-
-//bind the PWM struct with the timer and the channel
-	LL_TIM_OC_Init(TIM1, LL_TIM_CHANNEL_CH1, &PWMInitStruct);
+	Timer_OC_Init.OCNState=LL_TIM_OCSTATE_DISABLE;
+	Timer_OC_Init.OCNIdleState = LL_TIM_OCIDLESTATE_LOW;
+	Timer_OC_Init.OCNPolarity = LL_TIM_OCPOLARITY_HIGH;
+	
+	LL_TIM_OC_Init(TIM1, LL_TIM_CHANNEL_CH1, &Timer_OC_Init);	
 }
 
 void enableServo(void){
@@ -55,9 +61,20 @@ void disableServo(void){
 		LL_TIM_DisableCounter(TIM1);
 }
 
-void setSailAngle (int angle) { 
-	float coefDirect = (-5./6.);
-	float	origin = 100.;
-	float compareValue = coefDirect * (float) angle + origin;
-	LL_TIM_OC_SetCompareCH1(TIM1,(int) compareValue);
+void setSailAngle (int Angle) { 
+	if (Angle>360) {Angle=360;}
+	if (Angle > 180) 
+	{
+		comparevalue=(95- (((86.0-40.0)/90.0)* ((180-(Angle-180))/2.0)));
+	}
+	else 
+	{
+		comparevalue=(95- (((86.0-40.0)/90.0)* (Angle/2.0)));
+	}	
+
+	LL_TIM_OC_SetCompareCH1(TIM1, (int)comparevalue);
+
 }
+
+//(-5/9)*((2/3)*180 - 30) +100
+
