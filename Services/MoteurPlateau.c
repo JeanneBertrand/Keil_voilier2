@@ -36,5 +36,5 @@ void SetParam(int angle){
 		angle= - angle; 
 	}
 	int power = angle*4;
-	LL_TIM_OC_SetCompareCH2(TIM2,power); 
+	//LL_TIM_OC_SetCompareCH2(TIM2,power); 
 }

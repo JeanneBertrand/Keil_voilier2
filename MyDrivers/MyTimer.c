@@ -55,11 +55,11 @@ void MyTimer_Conf(TIM_TypeDef * Timer,int Arr, int Psc)
 	
 
 	// Blocage IT
-	LL_TIM_DisableIT_UPDATE(Timer);
+	//LL_TIM_DisableIT_UPDATE(Timer);
 	
 	
 	// Blocage Timer
-	LL_TIM_DisableCounter(Timer);
+	//LL_TIM_DisableCounter(Timer);
 	
 
 		
@@ -95,7 +95,11 @@ void MyPWM_input_Conf (int Arr, int Psc) {
 	TIM4 -> SMCR |= 4<<TIM_SMCR_SMS_Pos ; 
 
 	TIM4 -> CCER |= TIM_CCER_CC1E ;
-	TIM4 -> CCER |= TIM_CCER_CC2E ; 	
+	TIM4 -> CCER |= TIM_CCER_CC2E ;
+
+	TIM4-> DIER |= TIM_DIER_CC1IE;
+	TIM4-> DIER |= TIM_DIER_CC2IE;
+	LL_TIM_EnableIT_UPDATE(TIM4);
 	
 }
 

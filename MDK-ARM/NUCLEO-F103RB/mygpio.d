@@ -10,3 +10,4 @@ nucleo-f103rb\mygpio.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_
 nucleo-f103rb\mygpio.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
 nucleo-f103rb\mygpio.o: ..\Inc\system_stm32f1xx.h
 nucleo-f103rb\mygpio.o: ..\LLDrivers\inc\stm32f1xx_ll_tim.h
+nucleo-f103rb\mygpio.o: ..\LLDrivers\inc\stm32f1xx_ll_bus.h
