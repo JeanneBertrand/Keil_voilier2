@@ -14,5 +14,5 @@ void Init_Teleco(void) ;
 	* @param  None
   * @retval int value_cnt compris entre -20 et 20 (valeurs négatives à gauche et positives à droite). 
   */
-int getLength(void); 
+int getTelecoCount(void); 
 

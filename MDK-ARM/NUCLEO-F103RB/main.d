@@ -16,3 +16,4 @@ nucleo-f103rb\main.o: ..\MyDrivers\MyTimer.h
 nucleo-f103rb\main.o: ..\Services\RxFM.h
 nucleo-f103rb\main.o: ..\Services\Girouette.h
 nucleo-f103rb\main.o: ..\Services\Servo.h
+nucleo-f103rb\main.o: ..\Services\MoteurPlateau.h

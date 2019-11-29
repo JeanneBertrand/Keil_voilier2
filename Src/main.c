@@ -40,10 +40,11 @@ void  SystemClock_Config(void);
   * @param  None
   * @retval None
   */
+	
+		int val1 ;
 int main(void)
 {
-	
-	int angle;
+
 	//quand on passera sur du reel ne pas oublier de commenter la ligne plus bas
   /* Configure the system clock to 72 MHz */
   SystemClock_Config();
@@ -57,11 +58,12 @@ int main(void)
 	//enableGirouette();
 	Init_Teleco(); 
 	Init_Moteur();
-	int val1 ;
-	
+
+	//	val1=15;	
   while (1)
   {
-		val1 = getLength();
+		val1 = getTelecoCount();
+
 		SetParam(val1); 
 		//angle = GetAngle();
 		//setSailAngle(angle);
