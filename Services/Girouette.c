@@ -5,7 +5,6 @@
 
 #include "Girouette.h"
 
-int flag = 1; //1: l'interruption de l'index
 
 void initGirouette(void)
 {
@@ -49,7 +48,7 @@ void enableGirouette(void){
 	LL_TIM_EnableCounter(TIM3);
 }
 
-void diableGirouette(void){
+void disableGirouette(void){
 	LL_TIM_DisableCounter(TIM3);
 }
 

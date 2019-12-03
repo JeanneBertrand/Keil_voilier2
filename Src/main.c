@@ -20,11 +20,8 @@
 #include "stm32f1xx_ll_utils.h"   // utile dans la fonction SystemClock_Config
 #include "stm32f1xx_ll_system.h" // utile dans la fonction SystemClock_Config
 
-#include "Chrono.h"
-#include "MyADC.h"
-
 #include "MyTimer.h"
-#include "RxFM.h"
+#include "Recepteur.h"
 #include "Girouette.h"
 
 #include "Servo.h"
@@ -48,10 +45,8 @@ int angle;
 		int val1 ;
 int main(void)
 {
-<<<<<<< HEAD
-=======
 
->>>>>>> a939bb09053949dc66f0c6c1e2a63c90aef0878f
+
 	//quand on passera sur du reel ne pas oublier de commenter la ligne plus bas
   /* Configure the system clock to 72 MHz */
   SystemClock_Config();
@@ -67,7 +62,7 @@ int main(void)
 	
 	Init_Teleco(); 
 	Init_Moteur();
-<<<<<<< HEAD
+
 	int val1 ;
 	val= 75;
   while (1)	
@@ -75,14 +70,14 @@ int main(void)
   {
 		
 		val1 = getLength();
-=======
+
 
 	//	val1=15;	
   while (1)
   {
 		val1 = getTelecoCount();
 
->>>>>>> a939bb09053949dc66f0c6c1e2a63c90aef0878f
+
 		SetParam(val1); 
 		
 		angle = GetAngle();

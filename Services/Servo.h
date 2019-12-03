@@ -19,9 +19,9 @@ est une bonne manière de procéder pour automatiser le
 processus.																					
 																									*/
 																									
-#ifndef SERVO_MOTEUR_H
+#ifndef SERVO_H
 
-#define SERVO_MOTEUR_H
+#define SERVO_H
 
 //Fonction d'initialisation du servomoteur. 
 //On y trouve la définition de la structure du GPIO, du Timer 1 et du BDTR pour le MOE.

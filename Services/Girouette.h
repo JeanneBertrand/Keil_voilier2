@@ -42,10 +42,12 @@ void enableGirouette(void);
 
 //Fonction de désactivation de la girouette.
 //Une fois appelée, le compteur du Timer 3 sera désactivé.
-void diableGirouette(void);
+void disableGirouette(void);
 
 //Récupération de l'angle donné par la girouette.
 //La fonction ajuste l'angle par rapport au décalage provoqué par la girouette.
+//L'angle retourné prend des valeurs entre 0 et 360.
+//On considère la valeur 0 degrés lorsque le vent est face au voilier.
 int GetAngle(void);
 
 //Initialise le compteur lorsque la girouette passe un certain point lors d'une première rotation.
