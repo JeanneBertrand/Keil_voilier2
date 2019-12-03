@@ -76,5 +76,3 @@ void setSailAngle (int Angle) {
 
 }
 
-//(-5/9)*((2/3)*180 - 30) +100
-

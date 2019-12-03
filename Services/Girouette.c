@@ -43,9 +43,6 @@ void initGirouette(void)
 	setIndex();
 }
 
-/*void IT_girouette(void){
-	
-}*/
 
 void enableGirouette(void){
 	
